@@ -534,15 +534,46 @@ body{padding:18px 14px 40px}
   }
   };
 
-  /* ══ 言語 ══ */
+  /* ══ 言語 ══
+     優先順位は  URL の ?lang=  →  保存した設定  →  日本語。
+     端末の言語設定（navigator.language）は見ない。既定はいつでも日本語 */
   var LKEY = 'idaten_pledge_lang';
   var HEAD, GENDER_Q, TAIL, BRANCH, CH, PROFILE, LINKS, SCORE, UI;
-  var LANG = (function(){
-    try { var v = localStorage.getItem(LKEY); if (v === 'ja' || v === 'en') return v; } catch(e){}
-    /* 日本語の端末は日本語、それ以外は英語。迷ったら日本語には倒さない */
-    var n = (navigator.language || 'ja');
-    return /^ja/i.test(n) ? 'ja' : 'en';
-  })();
+
+  /* ja / en だけを受け取る。ja-JP、EN-US、大文字小文字の違いも拾う */
+  function normLang(v){
+    if (!v) return null;
+    v = String(v).toLowerCase().replace(/_/g, '-');
+    if (v === 'ja' || v.indexOf('ja-') === 0) return 'ja';
+    if (v === 'en' || v.indexOf('en-') === 0) return 'en';
+    return null;
+  }
+  /* URL の ?lang=。パラメータが無ければ null、知らない値は日本語に倒す */
+  function langFromUrl(){
+    var m;
+    try { m = /[?&]lang=([^&#]*)/i.exec(String(location.search || '')); } catch(e){ return null; }
+    if (!m) return null;
+    var raw = m[1];
+    try { raw = decodeURIComponent(raw.replace(/\+/g, ' ')); } catch(e){}
+    return normLang(raw) || 'ja';
+  }
+  function langFromStore(){
+    try { return normLang(localStorage.getItem(LKEY)); } catch(e){ return null; }
+  }
+  /* URL で指定された言語は、保存した設定より強い。ただしその場かぎりで、保存はしない */
+  var LANG = langFromUrl() || langFromStore() || 'ja';
+
+  /* 切り替えた言語をアドレス欄にも残す。共有された URL がそのまま言語を運ぶ。
+     iframe の中など replaceState が使えない場所では、黙って何もしない */
+  function syncUrl(l){
+    try {
+      if (!window.history || !history.replaceState) return;
+      var q = String(location.search || ''), rx = /([?&])lang=[^&#]*/i;
+      q = rx.test(q) ? q.replace(rx, '$1lang=' + l) : (q ? q + '&' : '?') + 'lang=' + l;
+      history.replaceState(history.state, '', location.pathname + q + location.hash);
+    } catch(e){}
+  }
+
   function applyLang(){
     var d = (LANG === 'en') ? EN : JA;
     HEAD = d.HEAD; GENDER_Q = d.GENDER_Q; TAIL = d.TAIL; BRANCH = d.BRANCH;
@@ -558,6 +589,7 @@ body{padding:18px 14px 40px}
     if (l === LANG) return;
     LANG = l;
     try { localStorage.setItem(LKEY, l); } catch(e){}
+    syncUrl(l);
     applyLang();
     if (Q.length) Q = buildQ(branch);
     track('lang_switch', { lang: l });
