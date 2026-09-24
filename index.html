@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>「性の健康」クイズ｜いだてんクリニック</title>
+<meta name="description" content="「性の健康」、どこまで本当に知っていますか。梅毒・HIVの予防・男性更年期・ジェンダーについてのクイズ。いだてんクリニック（大阪院・博多駅前院）">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════
+   スタンドアローン確認用のページ側スタイル
+   オウンドメディアに埋め込むときは、このブロックだけ削除
+   ══════════════════════════════════════════════════════════ */
+html,body{margin:0;padding:0;background:#F1EAE0;overflow-x:clip}
+body{padding:18px 14px 40px}
+/* ══════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════
+   ここから下が本体。#ic-quiz の中で完結します
+   ══════════════════════════════════════════════════════════ */
+#ic-quiz{
+  /* 採用LPと共通のトークン */
+  --navy:#0F2D70; --navy-d:#0B2359; --blue:#003973; --teal:#578D8D;
+  --gold:#B1986A; --gold-d:#8E7448; --gold-l:#E6D9C2;
+  --cream:#FAF7F2; --sand:#F1EAE0; --ink:#1F1B18; --muted:#6B645C; --line:#E4DCD1;
+  --sh-d:rgba(92,76,58,.14); --sh-l:rgba(255,252,246,.9);
+  --shadow-out:9px 9px 22px var(--sh-d),-9px -9px 22px var(--sh-l);
+  --shadow-out-sm:5px 5px 12px var(--sh-d),-5px -5px 12px var(--sh-l);
+  --shadow-in:inset 4px 4px 10px var(--sh-d),inset -4px -4px 10px var(--sh-l);
+
+  /* レインボー */
+  --r1:#C8455E; --r2:#DD7A34; --r3:#C9971B; --r4:#3E8E6E; --r5:#2E6FA7; --r6:#7B4B94; --r7:#A0417E;
+  --deep:#3A2E52;
+  --hero:linear-gradient(135deg,#5A3576 0%,#2E6FA7 42%,#3E8E6E 72%,#C9971B 100%);
+  --ring:linear-gradient(90deg,var(--r1),var(--r2),var(--r3),var(--r4),var(--r5),var(--r6));
+  --btn:linear-gradient(92deg,#7B4B94 0%,#2E6FA7 100%);
+  --btn-sh:rgba(76,55,120,.30); --focus:#7B4B94;
+  --q1:var(--r1); --q2:var(--r2); --q3:var(--r3); --q4:var(--r4); --q5:var(--r5); --q6:var(--r6); --q7:var(--r7);
+
+  max-width:560px;margin:0 auto;background:var(--cream);border-radius:22px;overflow:hidden;
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  color:var(--ink);line-height:1.8;font-size:16px;letter-spacing:.01em;text-align:left;
+  box-shadow:0 18px 44px rgba(31,27,24,.14);
+  touch-action:manipulation;-webkit-font-smoothing:antialiased;overflow-wrap:break-word;
+}
+/* テーマCSSに負けないためのリセット */
+#ic-quiz *,#ic-quiz *::before,#ic-quiz *::after{box-sizing:border-box;margin:0;padding:0}
+#ic-quiz div,#ic-quiz section,#ic-quiz header,#ic-quiz p,#ic-quiz ul,#ic-quiz li,#ic-quiz h2,#ic-quiz h3{display:block;float:none;width:auto;max-width:none;min-height:0}
+#ic-quiz span,#ic-quiz b,#ic-quiz small,#ic-quiz a{display:inline}
+#ic-quiz li::before,#ic-quiz li::after{content:none}
+#ic-quiz button{font-family:inherit;letter-spacing:inherit;border:0;background:none;cursor:pointer;color:inherit}
+#ic-quiz :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){#ic-quiz *{transition:none!important;animation:none!important}}
+
+/* --- ヒーロー --- */
+#ic-quiz .rbar{height:5px;display:grid;grid-template-columns:repeat(6,1fr)}
+#ic-quiz .rbar i:nth-child(1){background:var(--r1)}
+#ic-quiz .rbar i:nth-child(2){background:var(--r2)}
+#ic-quiz .rbar i:nth-child(3){background:var(--r3)}
+#ic-quiz .rbar i:nth-child(4){background:var(--r4)}
+#ic-quiz .rbar i:nth-child(5){background:var(--r5)}
+#ic-quiz .rbar i:nth-child(6){background:var(--r6)}
+#ic-quiz .qhero{background:var(--hero);color:#fff;padding:16px 18px 24px;text-align:center}
+#ic-quiz .lang{display:flex;justify-content:flex-end;margin-bottom:10px}
+#ic-quiz .lang .sw{display:flex;gap:2px;background:rgba(255,255,255,.2);border-radius:999px;padding:3px;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#ic-quiz .lang button{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-size:11.5px;font-weight:700;
+  letter-spacing:.1em;color:rgba(255,255,255,.85);padding:6px 13px;border-radius:999px;line-height:1.4;
+  transition:background .16s,color .16s;min-height:30px}
+#ic-quiz .lang button:hover{color:#fff}
+#ic-quiz .lang button[aria-pressed="true"]{background:#fff;color:var(--deep)}
+#ic-quiz .qhero .en2{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:600;letter-spacing:.24em;font-size:11px;
+  color:rgba(255,255,255,.72);text-transform:uppercase;display:block;margin-bottom:9px}
+#ic-quiz .qhero h2{font-size:22px;font-weight:900;line-height:1.5;letter-spacing:.02em;color:#fff}
+#ic-quiz .qhero h2 em{font-style:normal;font-weight:900;box-shadow:inset 0 -.5em 0 rgba(255,255,255,.22);padding:0 2px}
+#ic-quiz .qhero p{font-size:13.5px;color:rgba(255,255,255,.86);margin-top:8px;line-height:1.7}
+
+#ic-quiz .qbody{padding:22px 20px 26px}
+
+/* --- はじめに（属性・任意） --- */
+#ic-quiz .intro .lead{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:4px}
+#ic-quiz .intro .lead b{color:var(--deep)}
+#ic-quiz .intro .grp{margin-top:18px}
+#ic-quiz .intro .lb{font-size:14.5px;font-weight:700;color:var(--deep);letter-spacing:.01em}
+#ic-quiz .intro .hint{display:block;font-size:12.5px;font-weight:400;color:var(--muted);margin-top:1px;line-height:1.6}
+#ic-quiz .intro .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+#ic-quiz .intro .chips button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  background:var(--cream);border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:700;
+  color:var(--muted);box-shadow:var(--shadow-out-sm);transition:transform .12s,color .12s,box-shadow .12s;line-height:1.5}
+#ic-quiz .intro .chips button:hover{transform:translateY(-1px);color:var(--deep)}
+#ic-quiz .intro .chips button[aria-pressed="true"]{background:var(--btn);color:#fff;box-shadow:0 6px 14px var(--btn-sh)}
+#ic-quiz .intro .chips button.pass{font-weight:500;font-size:13px}
+#ic-quiz .intro .skip{display:block;width:100%;text-align:center;margin-top:14px;font-size:13.5px;font-weight:700;
+  color:var(--muted);padding:10px;border-radius:999px;line-height:1.6}
+#ic-quiz .intro .skip:hover{color:var(--deep);text-decoration:underline}
+#ic-quiz .intro .fine{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.75}
+
+/* --- 進捗 --- */
+#ic-quiz .prog{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+#ic-quiz .prog .dots{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;flex:1}
+#ic-quiz .prog .dots span{height:7px;border-radius:99px;background:rgba(31,27,24,.10);transition:background .3s}
+#ic-quiz .prog .dots span:nth-child(1).on{background:var(--r1)}
+#ic-quiz .prog .dots span:nth-child(2).on{background:var(--r2)}
+#ic-quiz .prog .dots span:nth-child(3).on{background:var(--r3)}
+#ic-quiz .prog .dots span:nth-child(4).on{background:var(--r4)}
+#ic-quiz .prog .dots span:nth-child(5).on{background:var(--r5)}
+#ic-quiz .prog .dots span:nth-child(6).on{background:var(--r6)}
+#ic-quiz .prog .dots span:nth-child(7).on{background:var(--r7)}
+#ic-quiz .prog .cnt{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:700;font-size:13px;color:var(--muted);white-space:nowrap;letter-spacing:.08em}
+
+/* --- 設問 --- */
+#ic-quiz .qno{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:700;letter-spacing:.2em;font-size:11.5px;
+  text-transform:uppercase;display:block;margin-bottom:9px;color:var(--qc,var(--r6))}
+#ic-quiz .qtext{font-size:19px;font-weight:700;line-height:1.65;color:var(--deep);letter-spacing:.01em}
+#ic-quiz .qtext em{font-style:normal;font-weight:900;border-bottom:3px solid var(--qc,var(--gold-l));padding-bottom:1px}
+
+/* --- ○× --- */
+#ic-quiz .ox{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+#ic-quiz .ox button{background:var(--cream);border-radius:18px;padding:20px 6px 16px;box-shadow:var(--shadow-out);
+  transition:transform .14s,box-shadow .14s;display:flex;flex-direction:column;align-items:center;gap:5px}
+#ic-quiz .ox button:hover{transform:translateY(-2px);box-shadow:12px 12px 26px var(--sh-d),-12px -12px 26px var(--sh-l)}
+#ic-quiz .ox button:active{box-shadow:var(--shadow-in);transform:none}
+#ic-quiz .ox .mk{width:46px;height:46px;stroke-width:3.4;fill:none;stroke-linecap:round;stroke:var(--r4)}
+#ic-quiz .ox button:last-child .mk{stroke:var(--r1)}
+#ic-quiz .ox .lb{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+
+/* --- 判定 --- */
+#ic-quiz .fb{margin-top:20px;border-radius:18px;padding:18px 19px;box-shadow:var(--shadow-in);background:var(--sand);text-align:left}
+#ic-quiz .fb .vd{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:900;letter-spacing:.02em}
+#ic-quiz .fb .vd .mk{width:22px;height:22px;stroke-width:3.4;fill:none;stroke-linecap:round}
+#ic-quiz .fb.hit .vd{color:var(--r4)} #ic-quiz .fb.hit .vd .mk{stroke:var(--r4)}
+#ic-quiz .fb.miss .vd{color:var(--r1)} #ic-quiz .fb.miss .vd .mk{stroke:var(--r1)}
+#ic-quiz .fb .ex{margin-top:9px;font-size:14px;line-height:1.85;color:#453F39;text-align:left}
+#ic-quiz .fb .ex b{color:var(--deep)}
+
+/* --- ボタン --- */
+#ic-quiz .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:56px;padding:14px 28px;border-radius:999px;
+  background:var(--btn);color:#fff;font-weight:700;font-size:16px;line-height:1.3;width:100%;
+  box-shadow:0 10px 24px var(--btn-sh);transition:transform .15s,box-shadow .15s,filter .15s;margin-top:18px}
+#ic-quiz .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+#ic-quiz .btn .mk{width:17px;height:17px;stroke:#fff;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#ic-quiz .btn.ghost{background:none;color:var(--muted);box-shadow:var(--shadow-out-sm);font-size:14.5px;min-height:48px;font-weight:700}
+#ic-quiz .btn.ghost:hover{filter:none;color:var(--deep)}
+#ic-quiz .btn.ghost .mk{stroke:currentColor}
+
+/* --- 結果 --- */
+#ic-quiz .score{text-align:center;padding:6px 0 2px}
+#ic-quiz .ring{width:148px;height:148px;margin:0 auto 16px;border-radius:50%;background:var(--ring);
+  display:grid;place-items:center;box-shadow:0 14px 30px rgba(31,27,24,.16)}
+#ic-quiz .ring .in{width:120px;height:120px;border-radius:50%;background:var(--cream);display:grid;place-items:center;align-content:center}
+#ic-quiz .ring .n{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:700;font-size:52px;line-height:1;color:var(--deep)}
+#ic-quiz .ring .d{font-size:12px;color:var(--muted);letter-spacing:.14em;font-family:"Josefin Sans",sans-serif;font-weight:600;margin-top:5px}
+#ic-quiz .score h3{font-size:21px;font-weight:900;color:var(--deep);line-height:1.4;letter-spacing:.02em}
+#ic-quiz .score h3.en3{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:700;font-size:27px;letter-spacing:.1em}
+#ic-quiz .score p{font-size:14px;color:var(--muted);margin-top:7px;line-height:1.75}
+
+#ic-quiz .show{position:relative;margin-top:22px;border-radius:18px;padding:20px 18px;text-align:center;background:var(--sand);box-shadow:var(--shadow-in)}
+#ic-quiz .show .ttl{font-size:15px;font-weight:900;color:var(--deep);letter-spacing:.02em}
+#ic-quiz .show .stamp{margin:13px auto 0;width:90px;height:90px;border-radius:50%;background:var(--btn);display:grid;place-items:center;
+  box-shadow:0 10px 22px var(--btn-sh)}
+#ic-quiz .show .stamp .mk{width:44px;height:44px;stroke:#fff;stroke-width:3.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#ic-quiz .show .tm{margin-top:11px;font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+
+/* --- スタッフのスタンプ（2本指で3回タップ） --- */
+#ic-quiz .show.done .stamp,#ic-quiz .show.done .tm{display:none}
+#ic-quiz .seal{width:min(186px,72%);aspect-ratio:1/1;margin:14px auto 2px;
+  pointer-events:none;color:var(--navy);transform:rotate(-8deg)}
+#ic-quiz .seal.master{color:#8E7448}
+#ic-quiz .seal svg{width:100%;height:100%;display:block}
+#ic-quiz .seal.now{animation:sealin .52s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes sealin{
+  0%{opacity:0;transform:rotate(-16deg) scale(2.1)}
+  50%{opacity:1;transform:rotate(-8deg) scale(.92)}
+  72%{transform:rotate(-8deg) scale(1.05)}
+  100%{opacity:1;transform:rotate(-8deg) scale(1)}
+}
+
+/* --- 結果のあと --- */
+#ic-quiz .after{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+#ic-quiz .after .en2{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-weight:600;letter-spacing:.24em;font-size:11px;
+  color:var(--r6);text-transform:uppercase;display:block;margin-bottom:8px}
+#ic-quiz .after h3{font-size:17px;font-weight:700;color:var(--deep);line-height:1.5}
+#ic-quiz .after .lnk{margin-top:14px;display:grid;gap:10px}
+#ic-quiz .after .lnk a{display:flex;align-items:center;gap:11px;background:var(--cream);border-radius:14px;padding:14px 16px;
+  box-shadow:var(--shadow-out-sm);text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:700;transition:transform .14s}
+#ic-quiz .after .lnk a:hover{transform:translateX(3px)}
+#ic-quiz .after .lnk .mk{width:19px;height:19px;stroke:var(--r6);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+#ic-quiz .after .lnk .ar{margin-left:auto;width:15px;height:15px;stroke:var(--muted);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#ic-quiz .after .fine{margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.75}
+
+#ic-quiz .foot{background:var(--sand);padding:15px 20px;text-align:center;font-size:11.5px;color:var(--muted);letter-spacing:.04em;cursor:default;user-select:none;-webkit-user-select:none}
+
+/* --- チャレンジ（超難問） --- */
+#ic-quiz .chbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:14px;
+  min-height:54px;padding:12px 20px;border-radius:999px;font-size:15px;font-weight:900;letter-spacing:.02em;
+  color:var(--gold-d);background:var(--cream);box-shadow:var(--shadow-out-sm),0 0 0 2px var(--gold) inset;
+  transition:transform .14s,box-shadow .14s;line-height:1.4}
+#ic-quiz .chbtn:hover{transform:translateY(-2px)}
+#ic-quiz .chbtn .mk{width:20px;height:20px;stroke:var(--gold-d);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+#ic-quiz .chhead{text-align:center;padding:4px 0 2px}
+#ic-quiz .chhead .badge{display:inline-flex;align-items:center;gap:7px;font-family:"Josefin Sans","Noto Sans JP",sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);
+  border:1.5px solid var(--gold);border-radius:999px;padding:5px 14px}
+#ic-quiz .chhead h3{margin-top:14px;font-size:23px;font-weight:900;color:var(--deep);line-height:1.4;letter-spacing:.02em}
+#ic-quiz .chhead p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.8}
+#ic-quiz .chhead p b{color:var(--gold-d)}
+#ic-quiz .chrule{margin-top:18px;background:var(--sand);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-in);text-align:left}
+#ic-quiz .chrule li{list-style:none;display:flex;gap:9px;font-size:13.5px;color:#453F39;line-height:1.75}
+#ic-quiz .chrule li + li{margin-top:7px}
+#ic-quiz .chrule li::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:9px}
+
+#ic-quiz .choices{display:grid;gap:10px;margin-top:20px}
+#ic-quiz .choices button{display:flex;align-items:center;gap:12px;text-align:left;background:var(--cream);border-radius:14px;
+  padding:15px 17px;font-size:15px;font-weight:700;color:var(--ink);box-shadow:var(--shadow-out-sm);
+  transition:transform .13s,box-shadow .13s;line-height:1.6;min-height:56px}
+#ic-quiz .choices button:hover{transform:translateX(3px)}
+#ic-quiz .choices button .kb{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-family:"Josefin Sans",sans-serif;font-size:13px;font-weight:700;color:#fff;background:var(--btn)}
+#ic-quiz .choices button.right{box-shadow:var(--shadow-out-sm),0 0 0 2.5px var(--r4) inset}
+#ic-quiz .choices button.wrong{box-shadow:var(--shadow-out-sm),0 0 0 2.5px var(--r1) inset;opacity:.7}
+#ic-quiz .choices button:disabled{cursor:default}
+
+/* --- 認定証 --- */
+#ic-quiz .cert{position:relative;margin-top:4px;border-radius:20px;padding:26px 20px 22px;text-align:center;
+  background:linear-gradient(160deg,#0B2359 0%,#132F63 55%,#1B2E52 100%);color:#fff;
+  box-shadow:0 16px 34px rgba(11,35,89,.3)}
+#ic-quiz .cert::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(214,187,132,.55);border-radius:13px;pointer-events:none}
+#ic-quiz .cert .crest{width:74px;height:74px;margin:0 auto 12px;display:block}
+#ic-quiz .cert .kicker{font-family:"Josefin Sans","Noto Sans JP",sans-serif;font-size:10.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:#D6BB84}
+#ic-quiz .cert h3{margin-top:9px;font-size:29px;font-weight:900;letter-spacing:.06em;color:#fff;line-height:1.3}
+#ic-quiz .cert .sub{margin-top:9px;font-size:13px;color:rgba(255,255,255,.8);line-height:1.75}
+#ic-quiz .cert .noline{margin-top:16px;padding-top:14px;border-top:1px solid rgba(214,187,132,.3);
+  font-family:"IBM Plex Mono","Josefin Sans",monospace;font-size:12px;color:#D6BB84;letter-spacing:.14em}
+#ic-quiz .cert .fine{margin-top:8px;font-size:10.5px;color:rgba(255,255,255,.45);line-height:1.7}
+
+#ic-quiz .miss{margin-top:4px;border-radius:18px;padding:22px 20px;text-align:center;background:var(--sand);box-shadow:var(--shadow-in)}
+#ic-quiz .miss h3{font-size:19px;font-weight:900;color:var(--deep);line-height:1.45}
+#ic-quiz .miss p{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+
+/* --- 離脱の確認 --- */
+#ic-quiz .ask{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;
+  background:rgba(20,16,32,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:qin .2s ease-out}
+#ic-quiz .askbox{width:100%;max-width:360px;background:var(--cream);border-radius:20px;padding:24px 22px 20px;text-align:center;
+  box-shadow:0 22px 50px rgba(20,16,32,.4)}
+#ic-quiz .askbox .ai{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;
+  background:var(--sand);box-shadow:var(--shadow-in)}
+#ic-quiz .askbox .ai svg{width:26px;height:26px;stroke:var(--gold-d);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#ic-quiz .askbox .at{font-size:17px;font-weight:900;color:var(--deep);line-height:1.5}
+#ic-quiz .askbox .ad{margin-top:9px;font-size:14px;color:var(--muted);line-height:1.8}
+#ic-quiz .askbox .btn{margin-top:16px;min-height:52px;font-size:15px}
+#ic-quiz .askbox .btn.ghost{margin-top:9px;min-height:52px;font-size:15px}
+
+/* --- 解説のなかの注意書き --- */
+#ic-quiz .fb .caution{display:block;text-align:left;margin-top:11px;border-radius:12px;padding:12px 14px;background:var(--cream);
+  box-shadow:inset 0 0 0 2px var(--gold);font-size:13.5px;line-height:1.8;color:#453F39}
+#ic-quiz .fb .caution b{color:var(--gold-d)}
+#ic-quiz .fb .caution .ci{width:16px;height:16px;flex:0 0 auto;stroke:var(--gold-d);stroke-width:2.4;fill:none;
+  stroke-linecap:round;vertical-align:-3px;margin-right:6px;display:inline-block}
+
+/* --- チャレンジが未解放のとき --- */
+#ic-quiz .chlock{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:14px;
+  min-height:54px;padding:12px 18px;border-radius:999px;font-size:13.5px;font-weight:700;line-height:1.55;
+  color:var(--muted);background:var(--sand);box-shadow:var(--shadow-in);text-align:center}
+#ic-quiz .chlock svg{width:17px;height:17px;flex:0 0 auto;stroke:var(--muted);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#ic-quiz .chlock b{color:var(--gold-d)}
+
+@keyframes qin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#ic-quiz .anim{animation:qin .28s ease-out}
+</style>
+<style>
+/* 社内確認用の注記。本番（-Final）では入らない */
+.review-note{max-width:560px;margin:16px auto 0;text-align:center;
+  font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  font-size:11px;line-height:1.7;letter-spacing:.08em;color:#8E857B}
+</style></head>
+<body>
+
+<div id="ic-quiz">
+  <div class="rbar"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="qhero">
+    <div class="lang"><div class="sw" role="group" aria-label="Language">
+      <button type="button" data-l="ja" aria-pressed="true">日本語</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+    </div></div>
+    <span class="en2" id="qEyebrow">Sexual Health Quiz</span>
+    <h2 id="qTitle">「性の健康」、<br>どこまで<em>本当に</em>知っていますか。</h2>
+  </div>
+  <div class="qbody" id="qbody"></div>
+  <div class="foot">Copyright&copy; IDATEN CLINIC</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ══ 設問 ══ */
+  var JA = {
+  /* ── 全員に出す3問（前半） ── */
+  HEAD: [
+    { t:'日本の梅毒の報告数はこの10年で<em>10倍以上</em>に増えているが、梅毒には<em>飲み薬による予防法</em>がある。',
+      a:true, ex:'<b>正解は ○。</b>報告数は2013年の約1,200件から、2023年には約15,000件に。一方で、性行為のあとに抗菌薬を飲むことで梅毒などのリスクを下げる<b>「ドキシPEP」</b>という方法があります。' },
+    { t:'HIVは、感染のおそれがあった<em>後</em>（対象者との性行為の後など）では、予防をする方法はない。',
+      a:false, ex:'<b>正解は ×。</b>おそれがあってから<b>72時間以内</b>に飲み始める<b>「PEP」</b>があります。できるだけ早く、理想は数時間以内に。さらに、あらかじめ飲んでおくことで性行為によるHIV感染のリスクを<b>約99%</b>減らせる<b>「PrEP」</b>もあります。いだてんクリニックではどちらも扱っています。' },
+    { t:'淋菌やクラミジアは、のど・性器・肛門に感染する。<em>体に異変がなければ</em>、感染していない。',
+      a:false, ex:'<b>正解は ×。</b>のどや肛門の感染は、<b>9割以上の人が症状に気づきません。</b>症状がないことは「感染していない」証明にはならないので、心配なときや、定期的なタイミングでの検査が大切です。いだてんクリニックでは、のど・性器（尿または膣ぬぐい）・肛門の<b>最大3か所</b>を調べることができます。' }
+  ],
+
+  /* ── ジェンダー外来の設問（M以外に出す） ── */
+  GENDER_Q:
+    { t:'性別違和の相談や<em>ホルモン療法</em>は、精神科でなければ受けられない。',
+      a:false, ex:'<b>正解は ×。</b>性別の違和感について相談することも、ホルモン療法を始めることも、<b>精神科以外でできます。</b>いだてんクリニックの「ジェンダー外来」でご相談いただけます。' +
+        '<span class="caution"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5M12 16.5h.01"/><circle cx="12" cy="12" r="9.2"/></svg>性別不合の<b>診断</b>を受ける場合は、精神科の紹介が必要です。</span>' },
+
+  /* ── 全員に出す1問（最後） ── */
+  TAIL: [
+    { t:'いだてんクリニックが新たに開院したのは、<em>博多駅前院</em>である。',
+      a:true, ex:'<b>正解は ○。</b><b>2026年9月</b>、大阪院に続く2院目として博多駅前院を開院しました。どちらの院でも、性感染症の検査・治療、HIVの予防（PrEP・PEP）、ジェンダー外来、「男性更年期」、女性の悩み、トラベル外来・ワクチンなどを行っています。' }
+  ],
+
+  /* ── 回答に応じて出し分ける ──────────────────────────
+     W = シス女性　　　pre に置き、梅毒の一般問題より前に出す
+     M = シス男性　　　ジェンダー外来の設問は出さない
+     T = ジェンダー当事者（ノンバイナリー・その他・トランス）　詳しめ
+     S = 回答を控えた人　　ライト
+     ※ 設問文と解説はすべて医師監修が必要
+     ──────────────────────────────────────────── */
+  BRANCH: {
+    W: { gender:true, pre:[
+      { t:'妊娠中に梅毒にかかると、おなかの<em>赤ちゃんにも感染する</em>ことがある。',
+        a:true, ex:'<b>正解は ○。</b>お母さんから赤ちゃんに感染することがあり、これを<b>「先天梅毒」</b>といいます。ただし、妊娠中でも使える薬で治療でき、<b>早く見つけて治療すれば防げます。</b>妊娠を考えている時期の検査には、はっきりした意味があります。' },
+      { t:'避妊の方法には、飲み薬のほかに<em>注射</em>によるものもある。',
+        a:true, ex:'<b>正解は ○。</b>数か月に1回の接種で避妊する方法があります。毎日飲む必要がないのが特徴で、いだてんクリニックでも取り扱っています。' }
+    ], mid:[] },
+
+    M: { gender:false, pre:[], mid:[
+      { t:'疲れがとれない・眠れない・気分が落ち込む。これらは男性ホルモンの低下による不調、<em>「男性更年期」</em>の可能性があり、<em>治療が可能</em>である。',
+        a:true, ex:'<b>正解は ○。</b>男性に起こる不調です。性欲や勃起力の低下だけでなく、疲労感・不眠・気分の落ち込みも代表的な症状で、日本には約600万人いるといわれています。血液検査で調べられ、生活習慣の改善やホルモン療法などの<b>治療法があります。</b>' },
+      { t:'「男性更年期」は、<em>50代以降</em>の男性に起こるものである。',
+        a:false, ex:'<b>正解は ×。</b>発症する年齢は決まっていません。<b>20〜30代で起こることもあります。</b>また、女性の更年期が5年ほどで落ち着くのに対して、「男性更年期」には決まった終わりがありません。「まだ若いから」と見過ごされやすい不調です。' },
+      { t:'HIVの予防薬PrEPには、毎日飲む方法のほかに、<em>性行為の前後にだけ飲む</em>方法もある。',
+        a:true, ex:'<b>正解は ○。</b>「オンデマンドPrEP」と呼ばれる方法で、性行為の前と後の決まったタイミングに飲みます。<b>毎日飲まなくてよい</b>ので、性行為の頻度が高くない方に向いた選択肢です。どちらが合うかは、生活のしかたによって変わります。' }
+    ] },
+
+    /* T = ジェンダー当事者（ノンバイナリー・その他・トランス）— 詳しめ */
+    T: { gender:true, pre:[], mid:[
+      { t:'ホルモン療法では、自認する性別のホルモンの数値が<em>高ければ高いほどよい</em>。',
+        a:false, ex:'<b>正解は ×。</b>ホルモンの値は、高ければ高いほど自認する性別に近づくというものではありません。いだてんクリニックでは、<b>なりたい性別に合わせて量を調整したり、製剤を選んだり</b>できます。必要に応じて生活習慣病の検査や血栓の検査も行えますし、<b>個人輸入で薬を使っている方の見守り診療</b>も行っています。' },
+      { t:'ホルモン療法を始めると、体の変化は<em>数日から数週間</em>で出そろう。',
+        a:false, ex:'<b>正解は ×。</b>変化のしかたは人によって違い、<b>数か月から年単位</b>かかるものもあります。焦らずに続けられるよう、途中の経過を見ながら量や方法を調整していきます。' }
+    ] },
+
+    /* S = 回答を控えた人（性自認が分からない）— ライト */
+    S: { gender:true, pre:[], mid:[
+      { t:'「性別不合」とは、生まれた時の性別と、<em>自分が認識している性別</em>が一致しない状態のことをいう。',
+        a:true, ex:'<b>正解は ○。</b>本人が自分をどの性別と認識しているかと、生まれた時に割り当てられた性別が一致しない状態を指します。' },
+      { t:'「性別不合」は、以前は<em>別の名前</em>で呼ばれていた。',
+        a:true, ex:'<b>正解は ○。</b>以前は「性同一性障害」と呼ばれていました。いまは<b>「性別不合」</b>という言い方に変わってきています。言葉が変わったのは、そのあり方をどう捉えるかが変わってきたからです。' }
+    ] }
+  },
+  /* ══ チャレンジ（超難問・4択）══ */
+  CH: [
+    { t:'HIVの予防薬「PrEP」を飲んでいる人が、定期的に受ける必要があるのはどの検査？',
+      o:['目の検査','腎臓の検査','骨密度の検査','聴力の検査'], a:1,
+      ex:'<b>正解は「腎臓の検査」。</b>PrEPに使う薬は腎臓に負担がかかることがあるため、<b>3か月ごとを目安に腎機能とHIVの検査を受けながら</b>続けます。「もらって終わり」の薬ではなく、定期的に通いながら使う薬です。いだてんクリニックでも、この検査とセットで処方しています。' },
+    { t:'U=U（治療によって性行為で感染しなくなる状態）が成り立つとされるのは、ウイルス量が検出限界未満の状態がどのくらい続いてから？',
+      o:['1週間','1か月','6か月','3年'], a:2,
+      ex:'<b>正解は「6か月」。</b>検出限界未満の状態が<b>6か月以上続いていること</b>が条件とされています。「薬を飲み始めたらすぐ」ではありません。だからこそ、治療を始めたあとも定期的に測り続けることに意味があります。' },
+    { t:'HPVは子宮頸がんの原因として知られているが、ほかにどのがんの原因にもなる？',
+      o:['胃がん','中咽頭がん・肛門がん・陰茎がん','白血病','皮膚がん'], a:1,
+      ex:'<b>正解は「中咽頭がん・肛門がん・陰茎がん」。</b>HPVはこれらのがんの原因にもなります。子宮頸がんだけの話ではないので、<b>HPVワクチンは男性にも推奨</b>されます。日本でも男性への接種ができ、いだてんクリニックでも受けられます。' },
+    { t:'のどのクラミジア・淋菌を調べるとき、一般的に使う検体は？',
+      o:['血液','尿','うがい液','便'], a:2,
+      ex:'<b>正解は「うがい液」。</b>専用の液体で数十秒うがいをして、その液を調べます。<b>のどに器具を入れないので、痛くありません。</b>のどの感染は症状が出にくいため、心配があれば性器の検査と一緒に調べておくのがおすすめです。' }
+  ],
+  /* ══ 冒頭の属性設問（すべて任意） ══ */
+  PROFILE: [
+    { k:'age',    lb:'年代', hint:'', o:['10代','20代','30代','40代','50代','60代〜'] },
+    { k:'birth',  lb:'生まれた時の性別', hint:'', o:['男性','女性'] },
+    { k:'gender', lb:'ご自身の性別（性自認）', hint:'', o:['男性','女性','ノンバイナリー','その他'] }
+  ],
+  /* ※ 遷移先URLはマーケティング部で確定させる（現在は仮） */
+  LINKS: [
+    { u:'https://idaten.clinic/sti-prevention/',    i:'hp', t:'性感染症の予防について' },
+    { u:'https://idaten.clinic/gender-affirmation/', i:'dc', t:'ジェンダー外来について' }
+  ],
+  SCORE: [
+    { h:'NICE CHALLENGE!', p:'新しい知識を知っていただけてうれしいです！' },
+    { h:'ABOVE AVERAGE!',  p:'ここまで知っている方は、なかなかいません！' },
+    { h:'NEARLY THERE!',   p:'あと1問でパーフェクト！ここまでよくご存じですね！' },
+    { h:'PERFECT!',        p:'全問正解、おみごとです！' }
+  ],
+  UI: {
+    eyebrow:'Sexual Health Quiz',
+    title:'「性の健康」、<br>どこまで<em>本当に</em>知っていますか。',
+    introLead:'よろしければ教えてください。<b>すべて任意です。</b>',
+    pass:'答えない', start:'はじめる', skip:'答えずにはじめる',
+    yes:'正しい', no:'まちがい', hit:'正解です', miss:'おしい！',
+    next:'次の問題へ', toResult:'結果を見る', again:'もう一度挑戦する',
+    qLabel:'Question',
+    showStaff:'この画面をスタッフにお見せください',
+    handed:'ステッカーをお渡しずみです',
+    handedMaster:'マスターステッカーをお渡しずみです',
+    masterReady:'マスターステッカーをどうぞ',
+    more:'More', moreTitle:'もっと知りたい方へ',
+    sealTop:'いだてんクリニック', sealMid:'受取済',
+    sealTopM:'性の健康マスター', sealMidM:'認定',
+    chOpen:'全問正解者だけの挑戦へ', chSeen:'マスターの問題をもう一度見る',
+    chLock:'<b>全問正解した人だけの挑戦</b>があります。<br>もう一度挑戦して、{n}問すべて正解すると開きます。',
+    chBadge:'Extra Challenge',
+    chTitle:'全問正解した人だけの<br>「性の健康マスター」への挑戦',
+    chLead:'ここからは、かなり難しい4問です。<br><b>4問すべて正解した方だけ</b>、特別なステッカーをお渡しします。',
+    chRules:['4問すべて4択。まぐれ当たりは256分の1です','1問でも間違えたら、そこで終了。何度でも挑戦できます','間違えても、その場で答えと解説が出ます'],
+    chGo:'挑戦する', chBack:'結果画面にもどる', chRetry:'もう一度挑戦する',
+    chLabel:'Challenge', chHit:'正解です', chMiss:'ざんねん',
+    certKicker:'Certified', certFirst:'　／　一発クリア',
+    certTitle:'性の健康<br>マスター',
+    certSub:'4問すべて正解。<br>この画面をスタッフにお見せください。',
+    certFine:'いだてんクリニック ブース企画の認定です。公的な資格ではありません。',
+    missTitle:'{a} / {b}問 正解', missSub:'あと少しでした。<br>答えは見たので、次はいけるはずです。',
+    askTitle:'まだステッカーを<br>受け取っていません',
+    askDesc:'このページを離れる前に、ブースのスタッフに画面をお見せください。',
+    askStay:'画面にもどる', askGo:'このまま移動する'
+  }
+  };
+
+
+  /* ══════════════ English ══════════════ */
+  var EN = {
+  HEAD: [
+    { t:'Reported cases of syphilis in Japan have risen <em>more than tenfold</em> in the past decade — but there is <em>a pill that helps prevent it</em>.',
+      a:true, ex:'<b>True.</b> Reports rose from about 1,200 in 2013 to about 15,000 in 2023. Meanwhile, taking an antibiotic after sex can lower the risk of syphilis and some other infections. This is called <b>Doxy-PEP</b>.' },
+    { t:'Once you may have been exposed to HIV (<em>after</em> sex with someone, for example), there is nothing you can do to prevent it.',
+      a:false, ex:'<b>False.</b> There is <b>PEP</b>, which you start <b>within 72 hours</b> of a possible exposure — the sooner the better, ideally within hours. There is also <b>PrEP</b>, taken in advance, which lowers the risk of getting HIV from sex by <b>about 99%</b>. IDATEN Clinic offers both.' },
+    { t:'Gonorrhoea and chlamydia can infect the throat, the genitals and the rectum. <em>If nothing feels wrong</em>, you are not infected.',
+      a:false, ex:'<b>False.</b> With throat and rectal infections, <b>more than 90% of people notice no symptoms at all.</b> Having no symptoms is not proof that you are free of infection, so testing matters — when something worries you, and at regular intervals. At IDATEN Clinic, <b>up to three sites</b> can be tested: the throat, the genitals (urine or a vaginal swab) and the rectum.' }
+  ],
+  GENDER_Q:
+    { t:'Support for gender dysphoria and <em>hormone therapy</em> are only available from a psychiatrist.',
+      a:false, ex:'<b>False.</b> You can talk about how you feel about your gender, and start hormone therapy, <b>outside psychiatry</b>. IDATEN Clinic\'s Gender Clinic is here for exactly that.' +
+        '<span class="caution"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5M12 16.5h.01"/><circle cx="12" cy="12" r="9.2"/></svg>A formal <b>diagnosis</b> of gender incongruence does require a referral to a psychiatrist.</span>' },
+  TAIL: [
+    { t:'IDATEN Clinic\'s newly opened second location is <em>Hakata Ekimae</em>.',
+      a:true, ex:'<b>True.</b> It opened in <b>September 2026</b>, following the Osaka clinic. Both locations offer STI testing and treatment, HIV prevention (PrEP and PEP), the Gender Clinic, male menopause, women\'s health, and travel medicine and vaccines.' }
+  ],
+  BRANCH: {
+    W: { gender:true, pre:[
+      { t:'If someone has syphilis during pregnancy, <em>the baby can be infected too</em>.',
+        a:true, ex:'<b>True.</b> It can pass from the pregnant person to the baby — this is called <b>congenital syphilis</b>. It can be treated with medication that is safe in pregnancy, and <b>finding it early prevents it</b>. That is what makes testing meaningful when you are thinking about pregnancy.' },
+      { t:'Besides pills, there is also an <em>injection</em> you can use for contraception.',
+        a:true, ex:'<b>True.</b> One injection every few months provides contraception, so there is nothing to remember daily. Whether it suits you depends on your body and your preferences. IDATEN Clinic offers it.' }
+    ], mid:[] },
+    M: { gender:false, pre:[], mid:[
+      { t:'Tiredness that will not lift, trouble sleeping, low mood. These can be signs of <em>male menopause</em>, caused by falling testosterone — and <em>it can be treated</em>.',
+        a:true, ex:'<b>True.</b> It affects men. Beyond low libido and erectile difficulty, fatigue, poor sleep and low mood are common signs, and an estimated 6 million people in Japan are affected. A blood test can check for it, and <b>treatments exist</b>, from lifestyle changes to hormone therapy.' },
+      { t:'<em>Male menopause</em> only happens to men in their <em>50s and older</em>.',
+        a:false, ex:'<b>False.</b> There is no fixed age. <b>It can happen in your 20s and 30s.</b> And unlike menopause in women, which usually settles within about five years, male menopause has no set end. It is easily missed by assuming you are too young.' },
+      { t:'Besides taking PrEP every day, there is also a way to take it <em>only around the time of sex</em>.',
+        a:true, ex:'<b>True.</b> This is called <b>on-demand PrEP</b> — you take it at set times before and after sex. Since you <b>do not need it daily</b>, it suits people who have sex less often. Which one fits depends on how you live.' }
+    ] },
+    T: { gender:true, pre:[], mid:[
+      { t:'In hormone therapy, the <em>higher</em> the level of the hormone matching your gender identity, the better.',
+        a:false, ex:'<b>False.</b> A higher level does not bring you closer to the gender you know yourself to be. At IDATEN Clinic, <b>the dose can be adjusted and the formulation chosen</b> to suit where you want to get to. Tests for lifestyle-related conditions and for blood clots are available when needed, and we also offer <b>monitoring care for people currently using medication obtained through personal import</b>.' },
+      { t:'Once you start hormone therapy, the changes to your body appear within <em>days to weeks</em>.',
+        a:false, ex:'<b>False.</b> Changes differ from person to person, and some take <b>months to years</b>. Doses and methods are adjusted as you go, so you can keep going without rushing.' }
+    ] },
+    S: { gender:true, pre:[], mid:[
+      { t:'<em>Gender incongruence</em> means the sex someone was assigned at birth and <em>the gender they know themselves to be</em> do not match.',
+        a:true, ex:'<b>True.</b> It describes a mismatch between the gender a person understands themselves to be and the sex recorded for them at birth.' },
+      { t:'Gender incongruence <em>used to be called something else</em>.',
+        a:true, ex:'<b>True.</b> It used to be called "gender identity disorder". The term now in use is <b>gender incongruence</b>. The language changed because the understanding of what it is changed.' }
+    ] }
+  },
+  CH: [
+    { t:'If you are taking PrEP, which test do you need to have regularly?',
+      o:['Eyes','Kidneys','Bone density','Hearing'], a:1,
+      ex:'<b>Kidneys.</b> The medication used for PrEP can put strain on the kidneys, so you take it <b>alongside kidney and HIV tests roughly every three months</b>. It is not a collect-and-go medication — you keep coming back while you use it. IDATEN Clinic prescribes it together with these tests.' },
+    { t:'U=U (undetectable equals untransmittable) is considered to hold once the viral load has stayed undetectable for how long?',
+      o:['1 week','1 month','6 months','3 years'], a:2,
+      ex:'<b>Six months.</b> The condition is that the viral load has been undetectable for <b>at least six months</b>. It is not "as soon as you start the medication". That is exactly why it is worth measuring regularly after treatment begins.' },
+    { t:'HPV is well known as a cause of cervical cancer. Which other cancers can it also cause?',
+      o:['Stomach cancer','Oropharyngeal, anal and penile cancer','Leukaemia','Skin cancer'], a:1,
+      ex:'<b>Oropharyngeal, anal and penile cancer.</b> HPV can cause these too. It is not only about cervical cancer, which is why <b>the HPV vaccine is recommended for men</b> as well. Vaccination for men is available in Japan, including at IDATEN Clinic.' },
+    { t:'When testing the throat for chlamydia and gonorrhoea, what sample is usually used?',
+      o:['Blood','Urine','A gargle sample','Stool'], a:2,
+      ex:'<b>A gargle sample.</b> You gargle with a special liquid for a few seconds, and that liquid is tested. <b>Nothing goes into your throat, so it does not hurt.</b> Throat infections rarely cause symptoms, so if you are concerned it is worth testing alongside the usual sites.' }
+  ],
+  PROFILE: [
+    { k:'age',    lb:'Age', hint:'', o:['10s','20s','30s','40s','50s','60s+'] },
+    { k:'birth',  lb:'Sex assigned at birth', hint:'', o:['Male','Female'] },
+    { k:'gender', lb:'Gender identity', hint:'', o:['Male','Female','Non-binary','Other'] }
+  ],
+  LINKS: [
+    { u:'https://idaten.clinic/sti-prevention/',     i:'hp', t:'About preventing STIs' },
+    { u:'https://idaten.clinic/gender-affirmation/', i:'dc', t:'About the Gender Clinic' }
+  ],
+  SCORE: [
+    { h:'NICE CHALLENGE!', p:'Glad we could share something new with you!' },
+    { h:'ABOVE AVERAGE!',  p:'Not many people know this much!' },
+    { h:'NEARLY THERE!',   p:'One away from perfect. You really know your stuff!' },
+    { h:'PERFECT!',        p:'All seven correct. Impressive!' }
+  ],
+  UI: {
+    eyebrow:'Sexual Health Quiz',
+    title:'How much do you <em>really</em><br>know about sexual health?',
+    introLead:'If you don\'t mind, tell us a little about yourself. <b>Everything here is optional.</b>',
+    pass:'Prefer not to say', start:'Start', skip:'Start without answering',
+    yes:'True', no:'False', hit:'Correct', miss:'So close!',
+    next:'Next question', toResult:'See your result', again:'Try again',
+    qLabel:'Question',
+    showStaff:'Please show this screen to our staff',
+    handed:'Sticker handed over',
+    handedMaster:'Master sticker handed over',
+    masterReady:'Here is your master sticker',
+    more:'More', moreTitle:'Want to know more?',
+    sealTop:'IDATEN CLINIC', sealMid:'RECEIVED',
+    sealTopM:'IDATEN CLINIC', sealMidM:'MASTER',
+    chOpen:'Take the master challenge', chSeen:'See the master questions again',
+    chLock:'<b>There is a challenge for those who got everything right.</b><br>Try again and answer all {n} correctly to unlock it.',
+    chBadge:'Extra Challenge',
+    chTitle:'For those who got them all right:<br>become a Sexual Health Master',
+    chLead:'Four genuinely hard questions.<br><b>Get all four right</b> and you receive a special sticker.',
+    chRules:['All four are multiple choice. Guessing your way through is a 1 in 256 shot','One wrong answer ends the round — but you can try as many times as you like','Even when you miss, the answer and an explanation appear right away'],
+    chGo:'Take the challenge', chBack:'Back to your result', chRetry:'Try again',
+    chLabel:'Challenge', chHit:'Correct', chMiss:'Not quite',
+    certKicker:'Certified', certFirst:'　／　First try',
+    certTitle:'Sexual Health<br>Master',
+    certSub:'All four correct.<br>Please show this screen to our staff.',
+    certFine:'An IDATEN Clinic booth activity. This is not a formal qualification.',
+    missTitle:'{a} of {b} correct', missSub:'So close.<br>You have seen the answers now — next time should do it.',
+    askTitle:'You haven\'t received<br>your sticker yet',
+    askDesc:'Before you leave this page, please show the screen to our booth staff.',
+    askStay:'Back to the screen', askGo:'Leave anyway'
+  }
+  };
+
+  /* ══ 言語 ══ */
+  var LKEY = 'idaten_pledge_lang';
+  var HEAD, GENDER_Q, TAIL, BRANCH, CH, PROFILE, LINKS, SCORE, UI;
+  var LANG = (function(){
+    try { var v = localStorage.getItem(LKEY); if (v === 'ja' || v === 'en') return v; } catch(e){}
+    /* 日本語の端末は日本語、それ以外は英語。迷ったら日本語には倒さない */
+    var n = (navigator.language || 'ja');
+    return /^ja/i.test(n) ? 'ja' : 'en';
+  })();
+  function applyLang(){
+    var d = (LANG === 'en') ? EN : JA;
+    HEAD = d.HEAD; GENDER_Q = d.GENDER_Q; TAIL = d.TAIL; BRANCH = d.BRANCH;
+    CH = d.CH; PROFILE = d.PROFILE; LINKS = d.LINKS; SCORE = d.SCORE; UI = d.UI;
+    document.documentElement.lang = LANG;
+    var eb = document.getElementById('qEyebrow'), tt = document.getElementById('qTitle');
+    if (eb) eb.textContent = UI.eyebrow;
+    if (tt) tt.innerHTML = UI.title;
+    var bs = root.querySelectorAll('.lang button');
+    for (var i=0;i<bs.length;i++) bs[i].setAttribute('aria-pressed', bs[i].getAttribute('data-l') === LANG);
+  }
+  function setLang(l){
+    if (l === LANG) return;
+    LANG = l;
+    try { localStorage.setItem(LKEY, l); } catch(e){}
+    applyLang();
+    if (Q.length) Q = buildQ(branch);
+    track('lang_switch', { lang: l });
+    rerender();
+  }
+  function scoreMsg(n){
+    if (n >= 7) return SCORE[3];
+    if (n === 6) return SCORE[2];
+    if (n >= 4) return SCORE[1];
+    return SCORE[0];
+  }
+  function fill(str, map){
+    return str.replace(/\{(\w+)\}/g, function(_, k){ return map[k]; });
+  }
+
+  /* 判定は選択肢の並び順で行う（0=男性 1=女性 / 0=男性 1=女性 2=ノンバイナリー 3=その他）。
+     言語を切り替えても同じ結果になる。-1 と 4（答えない）は未確定として扱う */
+  function pickBranch(){
+    var b = profIdx.birth, g = profIdx.gender;
+    if (b === 1 && g === 1) return 'W';                    // シス女性
+    if (b === 0 && g === 0) return 'M';                    // シス男性
+    if (g === 2 || g === 3) return 'T';                    // ノンバイナリー・その他
+    if ((b === 0 && g === 1) || (b === 1 && g === 0)) return 'T';   // トランス
+    return 'S';                                            // 回答を控えた・判断できない
+  }
+  function buildQ(k){
+    var b = BRANCH[k];
+    return b.pre.concat(HEAD, b.mid, b.gender ? [GENDER_Q] : [], TAIL);
+  }
+  var Q = [], branch = 'S';
+
+  var QC = ['var(--q1)','var(--q2)','var(--q3)','var(--q4)','var(--q5)','var(--q6)','var(--q7)'];
+
+  var prof = { age:null, birth:null, gender:null };
+  var profIdx = { age:-1, birth:-1, gender:-1 };
+
+  /* ══ 送信先。空なら送信しない ══ */
+  var ENDPOINT = '';
+
+  /* ══ 結果画面から先のリンク（本番のURLに差し替え） ══ */
+  /* 計測用パラメータ。外部へ出るリンクにはすべて付与する */
+  var UTM = 'utm_source=rainbow_festa&utm_medium=offline&utm_campaign=2026_rainbow_festa&utm_content=sexual_health_quiz';
+  function withUtm(u){
+    if (!u || u.charAt(0) === '#') return u;
+    return u + (u.indexOf('?') === -1 ? '?' : '&') + UTM;
+  }
+
+  var MK = {
+    o:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/></svg>',
+    x:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.6 5.6 18.4 18.4M18.4 5.6 5.6 18.4"/></svg>',
+    ck:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.8 9.7 18 19.5 6.6"/></svg>',
+    ar:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></svg>',
+    rt:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 1 1-2.4-5.5M19 3.5v4h-4"/></svg>',
+    dc:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4.5 4.5V21H6z"/><path d="M14 3v5h4.5"/></svg>',
+    hp:'<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5S3.8 15 3.8 9.2A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 8.2 2.2C20.2 15 12 20.5 12 20.5Z"/></svg>',
+    pn:'<svg class="mk ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5 15.5 12l-7 7"/></svg>'
+  };
+
+
+  var cidx = 0, chits = 0, cAttempt = 0, clocked = false, lastScore = -1;
+
+  var root = document.getElementById('ic-quiz');
+  var body = document.getElementById('qbody');
+  var idx = 0, hits = 0, done = [], locked = false, view = 'intro', lastPick = null, lastCPick = null;
+
+  function two(n){ return (n < 10 ? '0' : '') + n; }
+  function stamp(){
+    var d = new Date();
+    return d.getFullYear()+'.'+two(d.getMonth()+1)+'.'+two(d.getDate())+' '+two(d.getHours())+':'+two(d.getMinutes());
+  }
+  function track(name, params){
+    if (typeof window.gtag === 'function') { try { window.gtag('event', name, params || {}); } catch(e){} }
+  }
+
+  /* ══ 属性 ══ */
+  function renderIntro(){
+    view = 'intro';
+    var h = '<div class="intro anim">' +
+      '<p class="lead">'+UI.introLead+'</p>';
+    for (var i=0;i<PROFILE.length;i++){
+      var g = PROFILE[i];
+      h += '<div class="grp"><span class="lb">'+g.lb+(g.hint?'<span class="hint">'+g.hint+'</span>':'')+'</span><div class="chips" data-k="'+g.k+'">';
+      for (var j=0;j<g.o.length;j++) h += '<button type="button" aria-pressed="false" data-v="'+g.o[j]+'">'+g.o[j]+'</button>';
+      h += '<button type="button" class="pass" aria-pressed="false" data-v="'+UI.pass+'">'+UI.pass+'</button>';
+      h += '</div></div>';
+    }
+    h += '<button type="button" class="btn" id="go"><span>'+UI.start+'</span>'+MK.ar+'</button>' +
+         '<button type="button" class="skip" id="skip">'+UI.skip+'</button>' +
+         '</div>';
+    body.innerHTML = h;
+
+    var rows0 = body.querySelectorAll('.chips');
+    Array.prototype.forEach.call(rows0, function(row){
+      var k = row.getAttribute('data-k'), n = profIdx[k];
+      if (n >= 0 && row.children[n]) {
+        row.children[n].setAttribute('aria-pressed','true');
+        prof[k] = row.children[n].getAttribute('data-v');
+      }
+    });
+
+    var rows = body.querySelectorAll('.chips');
+    Array.prototype.forEach.call(rows, function(row){
+      row.addEventListener('click', function(e){
+        var b = e.target.closest('button'); if (!b) return;
+        var on = b.getAttribute('aria-pressed') === 'true';
+        var all = row.querySelectorAll('button');
+        for (var i=0;i<all.length;i++) all[i].setAttribute('aria-pressed','false');
+        b.setAttribute('aria-pressed', on ? 'false' : 'true');
+        var k = row.getAttribute('data-k');
+        prof[k] = on ? null : b.getAttribute('data-v');
+        profIdx[k] = on ? -1 : Array.prototype.indexOf.call(row.children, b);
+      });
+    });
+    document.getElementById('go').addEventListener('click', start);
+    document.getElementById('skip').addEventListener('click', function(){
+      prof = { age:null, birth:null, gender:null }; start();
+    });
+  }
+  function start(){
+    branch = pickBranch();
+    Q = buildQ(branch);
+    /* GA4 には年代と分岐だけ。性自認そのものは外部の解析サービスに送らない */
+    track('quiz_start', { age_band: prof.age || 'no_answer', branch: branch });
+    idx = 0; hits = 0; done = []; renderQ();
+  }
+
+  /* ══ 設問 ══ */
+  function prog(){
+    var h = '<div class="prog"><div class="dots">';
+    for (var i=0;i<Q.length;i++) h += '<span class="'+(i<idx?'on':'')+'"></span>';
+    h += '</div><span class="cnt">'+(idx+1)+' / '+Q.length+'</span></div>';
+    return h;
+  }
+  function renderQ(replay){
+    view = 'q';
+    locked = false;
+    if (replay === undefined) lastPick = null;
+    var q = Q[idx];
+    body.innerHTML = prog() +
+      '<div class="anim" style="--qc:'+QC[idx]+'">' +
+        '<span class="qno">'+UI.qLabel+' '+(idx+1)+'</span>' +
+        '<p class="qtext">'+q.t+'</p>' +
+        '<div class="ox">' +
+          '<button type="button" data-v="1">'+MK.o+'<span class="lb">'+UI.yes+'</span></button>' +
+          '<button type="button" data-v="0">'+MK.x+'<span class="lb">'+UI.no+'</span></button>' +
+        '</div>' +
+      '</div>';
+    var bs0 = body.querySelectorAll('.ox button');
+    for (var i0=0;i0<bs0.length;i0++) bs0[i0].addEventListener('click', onAnswer);
+    if (replay !== undefined && replay !== null) showFeedback(replay, false);
+  }
+  function onAnswer(e){
+    if (locked) return;
+    showFeedback(e.currentTarget.getAttribute('data-v') === '1', true);
+  }
+  function showFeedback(v, count){
+    locked = true;
+    lastPick = v;
+    var q = Q[idx], hit = (v === q.a);
+    if (count) {
+      if (hit) hits++;
+      done.push(hit ? 1 : 0);
+      track('quiz_answer', { question: idx+1, correct: hit ? 1 : 0 });
+    }
+    var bs = body.querySelectorAll('.ox button');
+    for (var i=0;i<bs.length;i++) bs[i].disabled = true;
+
+    var last = (idx === Q.length - 1);
+    var fb = document.createElement('div');
+    fb.className = 'fb anim ' + (hit ? 'hit' : 'miss');
+    fb.innerHTML = '<p class="vd">'+(hit?MK.ck:MK.x)+'<span>'+(hit?UI.hit:UI.miss)+'</span></p>' +
+                   '<p class="ex">'+q.ex+'</p>';
+    body.appendChild(fb);
+
+    var nx = document.createElement('button');
+    nx.type = 'button'; nx.className = 'btn';
+    nx.innerHTML = '<span>'+(last?UI.toResult:UI.next)+'</span>'+MK.ar;
+    nx.addEventListener('click', function(){
+      if (last) { renderResult(); } else { idx++; renderQ(); }
+    });
+    body.appendChild(nx);
+    if (count) fb.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  /* ══ 結果 ══ */
+  function renderResult(){
+    view = 'result';
+    track('quiz_complete', { score: hits, total: Q.length });
+    send({ score: hits, total: Q.length, answers: done.join(''), branch: branch,
+           age: prof.age, birth: prof.birth, gender: prof.gender });
+
+    lastScore = hits;
+    var m = scoreMsg(hits);
+    var msg = m.h, sub = m.p;
+
+    body.innerHTML =
+      '<div class="anim">' +
+        '<div class="score">' +
+          '<div class="ring"><div class="in"><span class="n">'+hits+'</span><span class="d">/ '+Q.length+'</span></div></div>' +
+          '<h3 class="en3">'+msg+'</h3><p>'+sub+'</p>' +
+        '</div>' +
+        '<div class="show">' +
+          '<p class="ttl">'+UI.showStaff+'</p>' +
+          '<div class="stamp">'+MK.ck+'</div>' +
+          '<p class="tm">'+stamp()+'</p>' +
+        '</div>' +
+        '<button type="button" class="btn ghost" id="again">'+MK.rt+'<span>'+UI.again+'</span></button>' +
+        '<div class="after">' +
+          '<span class="en2">'+UI.more+'</span>' +
+          '<h3>'+UI.moreTitle+'</h3>' +
+          '<div class="lnk">' + LINKS.map(function(l){
+            return '<a href="'+withUtm(l.u)+'">'+MK[l.i]+'<span>'+l.t+'</span>'+MK.pn+'</a>';
+          }).join('') + '</div>' +
+        '</div>' +
+      '</div>';
+    document.getElementById('again').addEventListener('click', function(){
+      idx = 0; hits = 0; done = []; track('quiz_retry', {}); renderQ();
+    });
+    guardLinks();
+    var already = readStamp();
+    if (already) paintStamp(already, false, false); else syncChallenge();
+  }
+
+
+  /* ══ チャレンジの画面 ══ */
+  var CREST = '<svg class="crest" viewBox="0 0 80 80" aria-hidden="true">' +
+    '<circle cx="40" cy="40" r="30" fill="none" stroke="#D6BB84" stroke-width="2"/>' +
+    '<circle cx="40" cy="40" r="24" fill="none" stroke="#D6BB84" stroke-width="1"/>' +
+    '<path d="M40 26 43.8 35.4 54 36.1 46.2 42.6 48.7 52.4 40 47 31.3 52.4 33.8 42.6 26 36.1 36.2 35.4Z" fill="#D6BB84"/>' +
+    '<path d="M17 40c0 9 5 17 12 21M63 40c0 9-5 17-12 21" fill="none" stroke="#D6BB84" stroke-width="2" stroke-linecap="round"/>' +
+    '</svg>';
+  var BOLT = '<svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></svg>';
+
+  function renderChIntro(){
+    view = 'chintro';
+    track('challenge_open', {});
+    body.innerHTML =
+      '<div class="anim">' +
+        '<div class="chhead">' +
+          '<span class="badge">'+UI.chBadge+'</span>' +
+          '<h3>'+UI.chTitle+'</h3>' +
+          '<p>'+UI.chLead+'</p>' +
+        '</div>' +
+        '<ul class="chrule">' + UI.chRules.map(function(r){ return '<li>'+r+'</li>'; }).join('') + '</ul>' +
+        '<button type="button" class="btn" id="chgo"><span>'+UI.chGo+'</span>' + MK.ar + '</button>' +
+        '<button type="button" class="btn ghost" id="chback">' + MK.rt + '<span>'+UI.chBack+'</span></button>' +
+      '</div>';
+    document.getElementById('chgo').addEventListener('click', function(){
+      cidx = 0; chits = 0; cAttempt++; renderCQ();
+    });
+    document.getElementById('chback').addEventListener('click', renderResult);
+  }
+
+  function renderCQ(replay){
+    view = 'chq';
+    clocked = false;
+    if (replay === undefined) lastCPick = null;
+    var q = CH[cidx];
+    var h = '<div class="prog"><div class="dots">';
+    for (var i=0;i<CH.length;i++) h += '<span class="'+(i<cidx?'on':'')+'"></span>';
+    h += '</div><span class="cnt">'+(cidx+1)+' / '+CH.length+'</span></div>';
+    h += '<div class="anim" style="--qc:var(--gold)">' +
+           '<span class="qno">'+UI.chLabel+' '+(cidx+1)+'</span>' +
+           '<p class="qtext">'+q.t+'</p><div class="choices">';
+    for (var j=0;j<q.o.length;j++){
+      h += '<button type="button" data-i="'+j+'"><span class="kb">'+'ABCD'.charAt(j)+'</span><span>'+q.o[j]+'</span></button>';
+    }
+    h += '</div></div>';
+    body.innerHTML = h;
+    var bs0 = body.querySelectorAll('.choices button');
+    for (var k=0;k<bs0.length;k++) bs0[k].addEventListener('click', onChoice);
+    if (replay !== undefined && replay !== null) showCFeedback(replay, false);
+  }
+
+  function onChoice(e){
+    if (clocked) return;
+    showCFeedback(parseInt(e.currentTarget.getAttribute('data-i'), 10), true);
+  }
+  function showCFeedback(pick, count){
+    clocked = true;
+    lastCPick = pick;
+    var q = CH[cidx];
+    var hit = (pick === q.a);
+    if (count) {
+      if (hit) chits++;
+      track('challenge_answer', { question: cidx+1, correct: hit ? 1 : 0 });
+    }
+    var bs = body.querySelectorAll('.choices button');
+    for (var i=0;i<bs.length;i++){
+      bs[i].disabled = true;
+      if (i === q.a) bs[i].className = 'right';
+      else if (i === pick) bs[i].className = 'wrong';
+    }
+    var fb = document.createElement('div');
+    fb.className = 'fb anim ' + (hit ? 'hit' : 'miss');
+    fb.innerHTML = '<p class="vd">'+(hit?MK.ck:MK.x)+'<span>'+(hit?UI.chHit:UI.chMiss)+'</span></p>' +
+                   '<p class="ex">'+q.ex+'</p>';
+    body.appendChild(fb);
+
+    var last = (cidx === CH.length - 1);
+    var nx = document.createElement('button');
+    nx.type = 'button'; nx.className = 'btn';
+    nx.innerHTML = '<span>' + (hit && !last ? UI.next : UI.toResult) + '</span>' + MK.ar;
+    nx.addEventListener('click', function(){
+      if (!hit || last) { renderMaster(); } else { cidx++; renderCQ(); }
+    });
+    body.appendChild(nx);
+    if (count) fb.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  function certNo(){
+    var d = new Date();
+    return 'NO. ' + two(d.getMonth()+1) + two(d.getDate()) + '-' + two(d.getHours()) + two(d.getMinutes()) + two(d.getSeconds() % 60);
+  }
+  function renderMaster(){
+    var cleared = (chits === CH.length);
+    view = cleared ? 'cert' : 'cmiss';
+    track('challenge_result', { cleared: cleared ? 1 : 0, attempt: cAttempt });
+    if (cleared) {
+      body.innerHTML =
+        '<div class="anim">' +
+          '<div class="cert">' + CREST +
+            '<span class="kicker">'+UI.certKicker+(cAttempt === 1 ? UI.certFirst : '')+'</span>' +
+            '<h3>'+UI.certTitle+'</h3>' +
+            '<p class="sub">'+UI.certSub+'</p>' +
+            '<p class="noline">' + certNo() + '</p>' +
+            '<p class="fine">'+UI.certFine+'</p>' +
+          '</div>' +
+          '<div class="show">' +
+            '<p class="ttl">'+UI.masterReady+'</p>' +
+            '<div class="stamp">' + MK.ck + '</div>' +
+            '<p class="tm">' + stamp() + '</p>' +
+          '</div>' +
+          '<button type="button" class="btn ghost" id="cdone">' + MK.rt + '<span>'+UI.chBack+'</span></button>' +
+        '</div>';
+      var m = readMaster();
+      if (m) paintStamp(m, false, true);
+    } else {
+      body.innerHTML =
+        '<div class="anim">' +
+          '<div class="miss">' +
+            '<h3>' + fill(UI.missTitle, { a: chits, b: CH.length }) + '</h3>' +
+            '<p>' + UI.missSub + '</p>' +
+          '</div>' +
+          '<button type="button" class="btn" id="cretry"><span>'+UI.chRetry+'</span>' + MK.ar + '</button>' +
+          '<button type="button" class="btn ghost" id="cdone">' + MK.rt + '<span>'+UI.chBack+'</span></button>' +
+        '</div>';
+      document.getElementById('cretry').addEventListener('click', function(){
+        cidx = 0; chits = 0; cAttempt++; renderCQ();
+      });
+    }
+    document.getElementById('cdone').addEventListener('click', renderResult);
+  }
+
+  /* ══ ステッカーを受け取る前にページを離れようとしたとき ══ */
+  function hasSticker(){ return !!readStamp() || !!body.querySelector('.seal'); }
+  function askBeforeLeave(url){
+    var d = document.createElement('div');
+    d.className = 'ask'; d.setAttribute('role','dialog'); d.setAttribute('aria-modal','true');
+    d.innerHTML = '<div class="askbox">' +
+      '<div class="ai"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5v5M12 17h.01"/><circle cx="12" cy="12" r="9.2"/></svg></div>' +
+      '<p class="at">'+UI.askTitle+'</p>' +
+      '<p class="ad">'+UI.askDesc+'</p>' +
+      '<button type="button" class="btn" id="askstay"><span>'+UI.askStay+'</span></button>' +
+      '<button type="button" class="btn ghost" id="askgo"><span>'+UI.askGo+'</span></button>' +
+      '</div>';
+    root.appendChild(d);
+    d.querySelector('#askstay').addEventListener('click', function(){ d.remove(); });
+    d.querySelector('#askgo').addEventListener('click', function(){ d.remove(); window.location.href = url; });
+    d.addEventListener('click', function(e){ if (e.target === d) d.remove(); });
+    track('leave_warned', {});
+  }
+  function guardLinks(){
+    var as = body.querySelectorAll('.after .lnk a');
+    Array.prototype.forEach.call(as, function(a){
+      a.addEventListener('click', function(e){
+        if (hasSticker()) return;
+        e.preventDefault();
+        askBeforeLeave(a.getAttribute('href'));
+      });
+    });
+  }
+
+  /* ══ スタッフ用スタンプ（画面を2本指で3回タップ）══
+     受け取り済みの目印。端末のローカルにだけ残る簡易な印で、認証ではない。 */
+  var SKEY = 'idaten_pledge_stamped';
+  var MKEY = 'idaten_pledge_master';
+  function readStamp(){ try { return localStorage.getItem(SKEY); } catch(e){ return null; } }
+  function writeStamp(v){ try { v ? localStorage.setItem(SKEY, v) : localStorage.removeItem(SKEY); } catch(e){} }
+  function readMaster(){ try { return localStorage.getItem(MKEY); } catch(e){ return null; } }
+  function writeMaster(v){ try { v ? localStorage.setItem(MKEY, v) : localStorage.removeItem(MKEY); } catch(e){} }
+
+  function sealHTML(when, master){
+    var top = master ? UI.sealTopM : UI.sealTop;
+    var mid = master ? UI.sealMidM : UI.sealMid;
+    var cls = master ? 'seal now master' : 'seal now';
+    return '<div class="' + cls + '" aria-hidden="true"><svg viewBox="0 0 180 180">' +
+      '<circle cx="90" cy="90" r="84" fill="none" stroke="currentColor" stroke-width="5.5"/>' +
+      '<circle cx="90" cy="90" r="73" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+      '<text x="90" y="62" text-anchor="middle" font-family="Noto Sans JP" font-size="'+(LANG==='en'?13:15)+'" font-weight="700" fill="currentColor" letter-spacing="1">' + top + '</text>' +
+      '<path d="M40 72 H140" stroke="currentColor" stroke-width="1.4"/>' +
+      '<text x="90" y="112" text-anchor="middle" font-family="Noto Sans JP" font-size="'+(LANG==='en'?26:35)+'" font-weight="900" fill="currentColor" letter-spacing="'+(LANG==='en'?1:3)+'">' + mid + '</text>' +
+      '<text x="90" y="136" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="currentColor" letter-spacing="1">' + when + '</text>' +
+      '</svg></div>';
+  }
+  function paintStamp(when, animate, master){
+    var box = body.querySelector('.show'); if (!box) return;
+    var old = box.querySelector('.seal'); if (old) old.remove();
+    box.classList.add('done');
+    var t = box.querySelector('.ttl');
+    if (t) t.textContent = master ? UI.handedMaster : UI.handed;
+    box.insertAdjacentHTML('beforeend', sealHTML(when, master));
+    if (!animate) box.querySelector('.seal').classList.remove('now');
+    if (!master) syncChallenge();
+  }
+  function clearStamp(master){
+    var box = body.querySelector('.show'); if (!box) return;
+    var old = box.querySelector('.seal'); if (old) old.remove();
+    box.classList.remove('done');
+    var t = box.querySelector('.ttl');
+    if (t) t.textContent = master ? UI.masterReady : UI.showStaff;
+    if (!master) syncChallenge();
+  }
+  /* 受取済のスタンプが押され、かつ全問正解のときだけチャレンジを開く */
+  function syncChallenge(){
+    var host = body.querySelector('#again'); if (!host) return;
+    var old = body.querySelector('.chbtn, .chlock'); if (old) old.remove();
+    if (!readStamp() && !body.querySelector('.seal')) return;
+
+    if (lastScore === Q.length) {
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'chbtn';
+      btn.innerHTML = BOLT + '<span>' + (readMaster() ? UI.chSeen : UI.chOpen) + '</span>';
+      btn.addEventListener('click', renderChIntro);
+      host.parentNode.insertBefore(btn, host);
+    } else if (lastScore >= 5) {
+      var lk = document.createElement('p');
+      lk.className = 'chlock';
+      lk.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></svg>' +
+        '<span>' + fill(UI.chLock, { n: Q.length }) + '</span>';
+      host.parentNode.insertBefore(lk, host);
+    }
+  }
+
+  var lastToggle = 0;
+  function toggleStamp(){
+    var box = body.querySelector('.show'); if (!box) return;   // 結果／認定画面以外では効かない
+    var isMaster = !!body.querySelector('.cert');
+    var read = isMaster ? readMaster : readStamp;
+    var write = isMaster ? writeMaster : writeStamp;
+    var now = Date.now();
+    // 保存が使えない環境（シークレットモード等）でも取り消せるよう、画面の状態も見る
+    if (box.querySelector('.seal') || read()) {
+      if (now - lastToggle < 4000) { write(null); clearStamp(isMaster); }   // 押し間違いの取り消し
+      return;
+    }
+    lastToggle = now;
+    var w = stamp();
+    write(w);
+    paintStamp(w, true, isMaster);
+    track(isMaster ? 'master_handed' : 'sticker_handed', {});
+  }
+  var taps = [];
+  root.addEventListener('touchstart', function(e){
+    if (!e.touches || e.touches.length !== 2) return;
+    var now = Date.now();
+    taps = taps.filter(function(t){ return now - t < 1600; });
+    taps.push(now);
+    if (taps.length >= 3) { taps = []; toggleStamp(); }
+  }, { passive: true });
+  root.addEventListener('icstamp', toggleStamp);
+
+  /* 2本指のジェスチャーが効かない端末向けの代替。
+     フッターの「IDATEN CLINIC」を1.6秒以内に3回クリックすると同じ動作になる */
+  var footTaps = [];
+  var footEl = root.querySelector('.foot');
+  if (footEl) footEl.addEventListener('click', function(){
+    var now = Date.now();
+    footTaps = footTaps.filter(function(t){ return now - t < 1600; });
+    footTaps.push(now);
+    if (footTaps.length >= 3) { footTaps = []; toggleStamp(); }
+  });
+
+  /* ══ 送信：ENDPOINT が空なら何もしない。失敗しても画面には出さない ══ */
+  function send(payload){
+    if (!ENDPOINT) return;
+    try {
+      payload.at = new Date().toISOString();
+      var b = new Blob([JSON.stringify(payload)], { type:'application/json' });
+      if (navigator.sendBeacon) { navigator.sendBeacon(ENDPOINT, b); return; }
+      fetch(ENDPOINT, { method:'POST', body:b, keepalive:true }).catch(function(){});
+    } catch(e){}
+  }
+
+  function rerender(){
+    var d = root.querySelector('.ask'); if (d) d.remove();
+    if (view === 'intro')   { renderIntro(); return; }
+    if (view === 'q')       { renderQ(lastPick); return; }
+    if (view === 'result')  { renderResult(); return; }
+    if (view === 'chintro') { renderChIntro(); return; }
+    if (view === 'chq')     { renderCQ(lastCPick); return; }
+    renderMaster();
+  }
+
+  var langBtns = root.querySelectorAll('.lang button');
+  Array.prototype.forEach.call(langBtns, function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-l')); });
+  });
+
+  applyLang();
+  renderIntro();
+})();
+</script>
+<p class="review-note">社内確認用（監修前）</p>
+</body>
+</html>
